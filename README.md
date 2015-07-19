@@ -7,7 +7,7 @@
 * aiwolf-server
 * aiwolf-gui
 
-Note: 開発環境は，0.2.3を利用
+Note: ライブラリのバージョンは常に最新のものを利用
 
 # [Kobasemi](https://github.com/kobasemi) Member List
 * [AKASAKA SHOTA](https://github.com/asakasa)
