@@ -15,4 +15,4 @@ Note: ライブラリのバージョンは常に最新のものを利用
 * [KOUSAKA KENSUKE](https://github.com/trileg)
 * [HIRAMATSU KOSUKE](http://github.com/ommadawn46)  
 * [BANDO TSUBASA](https://github.com/b11001010)  
-* [Nojima Yuki](https://github.com/osumi1204)
+* [NOJIMA YUKI](https://github.com/osumi1204)
