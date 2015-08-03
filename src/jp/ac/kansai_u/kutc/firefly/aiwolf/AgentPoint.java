@@ -8,21 +8,21 @@ package jp.ac.kansai_u.kutc.firefly.aiwolf;
  * @author Yuki Nojima
  */
 public class AgentPoint {
-    int sip_wolf[] = new int[15];
-    int sip_villager[] = new int[15];
-    int sip_bodygurad[] = new int[15];
-    int sip_seer[] = new int[15];
-    int sip_possessed[] = new int[15];
-    int sip_medium[] = new int[15];
-    int scp[] = new int[15];
+    private int sip_wolf[] = new int[15];
+    private int sip_villager[] = new int[15];
+    private int sip_bodygurad[] = new int[15];
+    private int sip_seer[] = new int[15];
+    private int sip_possessed[] = new int[15];
+    private int sip_medium[] = new int[15];
+    private int scp[] = new int[15];
     
-    int oip_wolf[] = new int[15];
-    int oip_villager[] = new int[15];
-    int oip_bodygurad[] = new int[15];
-    int oip_seer[] = new int[15];
-    int oip_possessed[] = new int[15];
-    int oip_medium[] = new int[15];
-    int ocp[] = new int[15];
+    private int oip_wolf[] = new int[15];
+    private int oip_villager[] = new int[15];
+    private int oip_bodygurad[] = new int[15];
+    private int oip_seer[] = new int[15];
+    private int oip_possessed[] = new int[15];
+    private int oip_medium[] = new int[15];
+    private int ocp[] = new int[15];
     
     public AgentPoint(){
         for(int i=0;i<15;i++){
