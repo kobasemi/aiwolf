@@ -14,7 +14,6 @@ public class Point {
 	private int agentId = -1; // ID of update target agent.
 	private int view = -1; // Point of view. Subjective:0 or Objective:1.
 	private Role role = null; // Role.VILLAGER, Role.WEREWOLF, and so on.
-	private Team team = null; // Team.VILLAGER or Team.WEREWOLF.
 
 	public int getVariation() {
 		return variation;
@@ -56,13 +55,5 @@ public class Point {
 
 	public void setRole(Role role) {
 		this.role = role;
-	}
-
-	public Team getTeam() {
-		return team;
-	}
-
-	public void setTeam(Team team) {
-		this.team = team;
 	}
 }
