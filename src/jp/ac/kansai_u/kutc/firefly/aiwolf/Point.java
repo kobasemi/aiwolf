@@ -10,11 +10,11 @@ import org.aiwolf.common.data.Team;
  * @author Kensuke Kosaka
  */
 public class Point {
-	private int variation; // Variation of agent point.
-	private int agentId; // ID of update target agent.
-	private int view; // Point of view. Subjective:0 or Objective:1.
-	private Role role; // Role.VILLAGER, Role.WEREWOLF, and so on.
-	private Team team; // Team.VILLAGER or Team.WEREWOLF.
+	private int variation = 0; // Variation of agent point.
+	private int agentId = -1; // ID of update target agent.
+	private int view = -1; // Point of view. Subjective:0 or Objective:1.
+	private Role role = null; // Role.VILLAGER, Role.WEREWOLF, and so on.
+	private Team team = null; // Team.VILLAGER or Team.WEREWOLF.
 
 	public int getVariation() {
 		return variation;
