@@ -10,7 +10,7 @@ package jp.ac.kansai_u.kutc.firefly.aiwolf;
 public class AgentPoint {
     private int sip_wolf[] = new int[15];
     private int sip_villager[] = new int[15];
-    private int sip_bodygurad[] = new int[15];
+    private int sip_bodyguard[] = new int[15];
     private int sip_seer[] = new int[15];
     private int sip_possessed[] = new int[15];
     private int sip_medium[] = new int[15];
@@ -18,7 +18,7 @@ public class AgentPoint {
     
     private int oip_wolf[] = new int[15];
     private int oip_villager[] = new int[15];
-    private int oip_bodygurad[] = new int[15];
+    private int oip_bodyguard[] = new int[15];
     private int oip_seer[] = new int[15];
     private int oip_possessed[] = new int[15];
     private int oip_medium[] = new int[15];
@@ -28,7 +28,7 @@ public class AgentPoint {
         for(int i=0;i<15;i++){
             sip_wolf[i]=50;
             sip_villager[i]=50;
-            sip_bodygurad[i]=50;
+            sip_bodyguard[i]=50;
             sip_seer[i]=50;
             sip_possessed[i]=50;
             sip_medium[i]=50;
@@ -36,7 +36,7 @@ public class AgentPoint {
             
             oip_wolf[i]=50;
             oip_villager[i]=50;
-            oip_bodygurad[i]=50;
+            oip_bodyguard[i]=50;
             oip_seer[i]=50;
             oip_possessed[i]=50;
             oip_medium[i]=50;
@@ -51,7 +51,7 @@ public class AgentPoint {
         }else if(view==1){
             return oip_wolf[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
 	}
 	
@@ -59,8 +59,18 @@ public class AgentPoint {
 	public void setWolfPoint(int player,int view,int point){
         if(view==0){
             this.sip_wolf[player] = this.sip_wolf[player]+point;
+            if(this.sip_wolf[player]<0){
+                this.sip_wolf[player]=0;
+            }else if(this.sip_wolf[player]>=100){
+                this.sip_wolf[player]=99;
+            }
         }else if(view==1){
             this.oip_wolf[player] = this.oip_wolf[player]+point;
+            if(this.oip_wolf[player]<0){
+                this.oip_wolf[player]=0;
+            }else if(this.oip_wolf[player]>=100){
+                this.oip_wolf[player]=99;
+            }
         }
 	}
     
@@ -71,7 +81,7 @@ public class AgentPoint {
         }else if(view==1){
             return oip_villager[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
     }
     
@@ -79,28 +89,48 @@ public class AgentPoint {
     public void setVillagerPoint(int player,int view,int point){
         if(view==0){
             this.sip_villager[player] = this.sip_villager[player]+point;
+            if(this.sip_villager[player]<0){
+                this.sip_villager[player]=0;
+            }else if(this.sip_villager[player]>=100){
+                this.sip_villager[player]=99;
+            }
         }else if(view==1){
             this.oip_villager[player] = this.oip_villager[player]+point;
+            if(this.oip_villager[player]<0){
+                this.oip_villager[player]=0;
+            }else if(this.oip_villager[player]>=100){
+                this.oip_villager[player]=99;
+            }
         }
     }
     
-    //playerのbodyguradIPを返す．viewは0:Subjective, 1:Objective．
+    //playerのbodyguardIPを返す．viewは0:Subjective, 1:Objective．
     public int getBodyguardPoint(int player,int view) {
         if(view==0){
-            return sip_bodygurad[player];
+            return sip_bodyguard[player];
         }else if(view==1){
-            return oip_bodygurad[player];
+            return oip_bodyguard[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
     }
     
-    //playerのbodyguradIPをpoint分プラスする．viewは0:Subjective, 1:Objective．
+    //playerのbodyguardIPをpoint分プラスする．viewは0:Subjective, 1:Objective．
     public void setBodyguardPoint(int player,int view,int point){
         if(view==0){
-            this.sip_bodygurad[player] = this.sip_bodygurad[player]+point;
+            this.sip_bodyguard[player] = this.sip_bodyguard[player]+point;
+            if(this.sip_bodyguard[player]<0){
+                this.sip_bodyguard[player]=0;
+            }else if(this.sip_bodyguard[player]>=100){
+                this.sip_bodyguard[player]=99;
+            }
         }else if(view==1){
-            this.oip_bodygurad[player] = this.oip_bodygurad[player]+point;
+            this.oip_bodyguard[player] = this.oip_bodyguard[player]+point;
+            if(this.oip_bodyguard[player]<0){
+                this.oip_bodyguard[player]=0;
+            }else if(this.oip_bodyguard[player]>=100){
+                this.oip_bodyguard[player]=99;
+            }
         }
     }
     
@@ -111,7 +141,7 @@ public class AgentPoint {
         }else if(view==1){
             return oip_seer[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
     }
     
@@ -119,8 +149,18 @@ public class AgentPoint {
     public void setSeerPoint(int player,int view,int point){
         if(view==0){
             this.sip_seer[player] = this.sip_seer[player]+point;
+            if(this.sip_seer[player]<0){
+                this.sip_seer[player]=0;
+            }else if(this.sip_seer[player]>=100){
+                this.sip_seer[player]=99;
+            }
         }else if(view==1){
             this.oip_seer[player] = this.oip_seer[player]+point;
+            if(this.oip_seer[player]<0){
+                this.oip_seer[player]=0;
+            }else if(this.oip_seer[player]>=100){
+                this.oip_seer[player]=99;
+            }
         }
     }
     
@@ -131,7 +171,7 @@ public class AgentPoint {
         }else if(view==1){
             return oip_possessed[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
     }
     
@@ -139,8 +179,18 @@ public class AgentPoint {
     public void setPossessedPoint(int player,int view,int point){
         if(view==0){
             this.sip_possessed[player] = this.sip_possessed[player]+point;
+            if(this.sip_possessed[player]<0){
+                this.sip_possessed[player]=0;
+            }else if(this.sip_possessed[player]>=100){
+                this.sip_possessed[player]=99;
+            }
         }else if(view==1){
             this.oip_possessed[player] = this.oip_possessed[player]+point;
+            if(this.oip_possessed[player]<0){
+                this.oip_possessed[player]=0;
+            }else if(this.oip_possessed[player]>=100){
+                this.oip_possessed[player]=99;
+            }
         }
     }
     
@@ -151,7 +201,7 @@ public class AgentPoint {
         }else if(view==1){
             return oip_medium[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
     }
     
@@ -159,8 +209,18 @@ public class AgentPoint {
     public void setMediumPoint(int player,int view,int point){
         if(view==0){
             this.sip_medium[player] = this.sip_medium[player]+point;
+            if(this.sip_medium[player]<0){
+                this.sip_medium[player]=0;
+            }else if(this.sip_medium[player]>=100){
+                this.sip_medium[player]=99;
+            }
         }else if(view==1){
             this.oip_medium[player] = this.oip_medium[player]+point;
+            if(this.oip_medium[player]<0){
+                this.oip_medium[player]=0;
+            }else if(this.oip_medium[player]>=100){
+                this.oip_medium[player]=99;
+            }
         }
     }
     
@@ -171,7 +231,7 @@ public class AgentPoint {
         }else if(view==1){
             return ocp[player];
         }else{//正しい値が入力されなかった場合
-            return 0;
+            return -1;
         }
     }
     
@@ -179,8 +239,18 @@ public class AgentPoint {
     public void setCampPoint(int player,int view,int point){
         if(view==0){
             this.scp[player] = this.scp[player]+point;
+            if(this.scp[player]<0){
+                this.scp[player]=0;
+            }else if(this.scp[player]>=100){
+                this.scp[player]=99;
+            }
         }else if(view==1){
             this.ocp[player] = this.ocp[player]+point;
+            if(this.ocp[player]<0){
+                this.ocp[player]=0;
+            }else if(this.ocp[player]>=100){
+                this.ocp[player]=99;
+            }
         }
     }
 
