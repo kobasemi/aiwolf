@@ -85,7 +85,7 @@ public class AgentPoint {
     }
     
     //playerのbodyguradIPを返す．viewは0:Subjective, 1:Objective．
-    public int getBodyguradPoint(int player,int view) {
+    public int getBodyguardPoint(int player,int view) {
         if(view==0){
             return sip_bodygurad[player];
         }else if(view==1){
@@ -96,7 +96,7 @@ public class AgentPoint {
     }
     
     //playerのbodyguradIPをpoint分プラスする．viewは0:Subjective, 1:Objective．
-    public void setBodyguradPoint(int player,int view,int point){
+    public void setBodyguardPoint(int player,int view,int point){
         if(view==0){
             this.sip_bodygurad[player] = this.sip_bodygurad[player]+point;
         }else if(view==1){
