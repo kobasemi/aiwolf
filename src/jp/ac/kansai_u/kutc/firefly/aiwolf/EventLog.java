@@ -15,89 +15,110 @@ import org.aiwolf.common.data.Species;
  * @author kosuke
  */
 public class EventLog {
-	private List<Event> allEvents = new ArrayList<Event>(); // a list of all events
+	private List<Event> allEvents; // a list of events
+	
+	// constructors
+	public EventLog(){
+		allEvents = new ArrayList<Event>();
+	}
+	private EventLog(List<Event> sourceEvents){
+		allEvents = sourceEvents;
+	}
 	
 	// add an event to the list
 	public void addEvent(Event event){
 		allEvents.add(event);
 	}
-	
 	// return a copy of the list
-	public List<Event> getAllEvents(){
+	public List<Event> getList(){
 		return new ArrayList<Event>(allEvents);
 	}
 	
-	// extract events by conditions, and return a new list
-	public List<Event> getEventsByDay(int day){
+	// extract events by conditions, and return a new EventLog instance
+	public EventLog selectByDay(int day){
 		List<Event> events = new ArrayList<Event>();
 		for(Event event: allEvents){
-			if(event.getDay() == day){
+			if(day == event.getDay()){
 				events.add(event);
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsByType(String type){
+	public EventLog selectByType(String type){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getType().equals(type)){
-				events.add(event);
+		if(type != null){
+			for(Event event: allEvents){
+				if(type.equals(event.getType())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsByAgent(Agent agent){
+	public EventLog selectByAgent(Agent agent){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getAgent().equals(agent)){
-				events.add(event);
+		if(agent != null){
+			for(Event event: allEvents){
+				if(agent.equals(event.getAgent())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsByTarget(Agent target){
+	public EventLog selectByTarget(Agent target){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getTarget().equals(target)){
-				events.add(event);
+		if(target != null){
+			for(Event event: allEvents){
+				if(target.equals(event.getTarget())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsByJudge(Judge judge){
+	public EventLog selectByJudge(Judge judge){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getJudge().equals(judge)){
-				events.add(event);
+		if(judge != null){
+			for(Event event: allEvents){
+				if(judge.equals(event.getJudge())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsByRole(Role role){
+	public EventLog selectByRole(Role role){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getRole().equals(role)){
-				events.add(event);
+		if(role != null){
+			for(Event event: allEvents){
+				if(role.equals(event.getRole())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsBySpecies(Species species){
+	public EventLog selectBySpecies(Species species){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getSpecies().equals(species)){
-				events.add(event);
+		if(species != null){
+			for(Event event: allEvents){
+				if(species.equals(event.getSpecies())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
-	public List<Event> getEventsByTopic(Topic topic){
+	public EventLog selectByTopic(Topic topic){
 		List<Event> events = new ArrayList<Event>();
-		for(Event event: allEvents){
-			if(event.getTopic().equals(topic)){
-				events.add(event);
+		if(topic != null){
+			for(Event event: allEvents){
+				if(topic.equals(event.getTopic())){
+					events.add(event);
+				}
 			}
 		}
-		return events;
+		return new EventLog(events);
 	}
 }
