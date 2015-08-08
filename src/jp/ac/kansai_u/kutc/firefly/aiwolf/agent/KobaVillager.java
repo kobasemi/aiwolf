@@ -9,6 +9,10 @@ import org.aiwolf.common.net.GameInfo;
 
 import java.util.List;
 
+import jp.ac.kansai_u.kutc.firefly.aiwolf.Brain;
+import jp.ac.kansai_u.kutc.firefly.aiwolf.Event;
+import jp.ac.kansai_u.kutc.firefly.aiwolf.EventLog;
+
 /**
  * This class is the role of Villager.
  *
@@ -18,7 +22,8 @@ import java.util.List;
 public class KobaVillager extends AbstractVillager {
     // Index of talks that already has been read in this day
     int readTalkIdx = 0;
-
+    EventLog log=new EventLog();
+    Brain brain=new Brain();
     @Override
     public void dayStart() {
         readTalkIdx = 0;
@@ -29,9 +34,11 @@ public class KobaVillager extends AbstractVillager {
     @Override
     public void update(GameInfo gameInfo) {
         super.update(gameInfo);
-
         List<Talk> talkList = gameInfo.getTalkList();
         for (int i = readTalkIdx; i < talkList.size(); i++) {
+        	Event event =new Event(talkList.get(i).getContent());//Event作成
+        	log.addEvent(event);// EventLogにEventを詰め込む
+        	brain.update(event);//BrainにEventを渡す
             Utterance u = new Utterance(talkList.get(i).getContent());
             switch (u.getTopic()) {
                 case COMINGOUT:
