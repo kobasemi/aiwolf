@@ -2,8 +2,11 @@ package jp.ac.kansai_u.kutc.firefly.aiwolf.agent;
 
 import org.aiwolf.client.base.player.AbstractVillager;
 import org.aiwolf.client.lib.Utterance;
+import org.aiwolf.common.data.*;
 import org.aiwolf.common.data.Agent;
+import org.aiwolf.common.data.Role;
 import org.aiwolf.common.data.Talk;
+import org.aiwolf.common.data.Team;
 import org.aiwolf.common.data.Vote;
 import org.aiwolf.common.net.GameInfo;
 
@@ -18,12 +21,13 @@ import jp.ac.kansai_u.kutc.firefly.aiwolf.EventLog;
  *
  * @see org.aiwolf.client.base.player.AbstractVillager
  * @author asakasa
+ * @author Kensuke Kosaka
  */
 public class KobaVillager extends AbstractVillager {
     // Index of talks that already has been read in this day
     int readTalkIdx = 0;
     EventLog log=new EventLog();
-    Brain brain=new Brain();
+    Brain brain=new Brain(Role.VILLAGER, Team.VILLAGER);
     @Override
     public void dayStart() {
         readTalkIdx = 0;
