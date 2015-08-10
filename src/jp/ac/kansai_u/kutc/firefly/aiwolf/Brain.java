@@ -1,11 +1,9 @@
 package jp.ac.kansai_u.kutc.firefly.aiwolf;
 
+import java.util.ArrayList;
+
 import org.aiwolf.common.data.Role;
 import org.aiwolf.common.data.Team;
-
-import java.lang.Integer;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class is 脳.
@@ -49,10 +47,10 @@ public class Brain {
 		if (event.getDay() == 0) {
 			if (event.getType() == "COMINGOUT") {
 				// 初日の占い師および霊能師のCOをカウントする
-				if (event.getRole() == "Seer") {
+				if (event.getRole().equals(Role.SEER)) {
 					if (!firstDayCoSeer.contains(event.getAgent().getAgentIdx()))
 						firstDayCoSeer.add(event.getAgent().getAgentIdx());
-				} else if (event.getRole() == "Medium") {
+				} else if (event.getRole().equals(Role.MEDIUM)) {
 					if (!firstDayCoMedium.contains(event.getAgent().getAgentIdx()))
 						firstDayCoMedium.add(event.getAgent().getAgentIdx());
 				}

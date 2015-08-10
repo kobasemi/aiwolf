@@ -1,9 +1,8 @@
 package jp.ac.kansai_u.kutc.firefly.aiwolf;
 
 import java.util.ArrayList;
-import jp.ac.kansai_u.kutc.firefly.aiwolf.*;
+
 import org.aiwolf.common.data.Role;
-import org.aiwolf.common.data.Team;
 
 /**
  * This class manage point of each player which use indicator of judgment.
@@ -24,24 +23,30 @@ public class PointSystem {
 			Point point = pointList.get(i);
 			if (point.getRole() != null) {
 				switch (point.getRole()) {
-					case Role.VILLAGER:
-						mAgentPoint.setVillagerPoint(point.getAgentId(), point.getView(), point.getVariation());
-						break;
-					case Role.BODYGUARD:
-						mAgentPoint.setBodyguardPoint(point.getAgentId(), point.getView(), point.getVariation());
-						break;
-					case Role.SEER:
-						mAgentPoint.setSeerPoint(point.getAgentId(), point.getView(), point.getVariation());
-						break;
-					case Role.MEDIUM:
-						mAgentPoint.setMediumPoint(point.getAgentId(), point.getView(), point.getVariation());
-						break;
-					case Role.WEREWOLF:
-						mAgentPoint.setWolfPoint(point.getAgentId(), point.getView(), point.getVariation());
-						break;
-					case Role.POSSESSED:
-						mAgentPoint.setPossessedPoint(point.getAgentId(), point.getView(), point.getVariation());
-						break;
+				case VILLAGER:
+					mAgentPoint.setVillagerPoint(point.getAgentId(), point.getView(), point.getVariation());
+					break;
+				case BODYGUARD:
+					mAgentPoint.setBodyguardPoint(point.getAgentId(), point.getView(), point.getVariation());
+					break;
+				case SEER:
+					mAgentPoint.setSeerPoint(point.getAgentId(), point.getView(), point.getVariation());
+					break;
+				case MEDIUM:
+					mAgentPoint.setMediumPoint(point.getAgentId(), point.getView(), point.getVariation());
+					break;
+				case WEREWOLF:
+					mAgentPoint.setWolfPoint(point.getAgentId(), point.getView(), point.getVariation());
+					break;
+				case POSSESSED:
+					mAgentPoint.setPossessedPoint(point.getAgentId(), point.getView(), point.getVariation());
+					break;
+				case FREEMASON:
+					//TODO: 不明
+					break;
+				default:
+					//TODO: 例外を投げる？
+					break;
 				}
 			} else {
 				mAgentPoint.setCampPoint(point.getAgentId(), point.getView(), point.getVariation());
@@ -56,24 +61,30 @@ public class PointSystem {
 		if (role != null) {
 			// Return IP.
 			switch (role) {
-				case Role.VILLAGER:
-					point = mAgentPoint.getVillagerPoint(player, view);
-					break;
-				case Role.BODYGUARD:
-					point = mAgentPoint.getBodyguardPoint(player, view);
-					break;
-				case Role.SEER:
-					point = mAgentPoint.getSeerPoint(player, view);
-					break;
-				case Role.MEDIUM:
-					point = mAgentPoint.getMediumPoint(player, view);
-					break;
-				case Role.WEREWOLF:
-					point = mAgentPoint.getWolfPoint(player, view);
-					break;
-				case Role.POSSESSED:
-					point = mAgentPoint.getPossessedPoint(player, view);
-					break;
+			case VILLAGER:
+				point = mAgentPoint.getVillagerPoint(player, view);
+				break;
+			case BODYGUARD:
+				point = mAgentPoint.getBodyguardPoint(player, view);
+				break;
+			case SEER:
+				point = mAgentPoint.getSeerPoint(player, view);
+				break;
+			case MEDIUM:
+				point = mAgentPoint.getMediumPoint(player, view);
+				break;
+			case WEREWOLF:
+				point = mAgentPoint.getWolfPoint(player, view);
+				break;
+			case POSSESSED:
+				point = mAgentPoint.getPossessedPoint(player, view);
+				break;
+			case FREEMASON:
+				//TODO: 不明
+				break;
+			default:
+				//TODO: 例外を投げる？
+				break;
 			}
 		} else {
 			// Return CP.
@@ -82,3 +93,4 @@ public class PointSystem {
 
 		return point;
 	}
+}
