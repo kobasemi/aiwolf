@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.aiwolf.client.lib.Topic;
 import org.aiwolf.common.data.Role;
 import org.aiwolf.common.data.Team;
 
@@ -56,7 +57,7 @@ public class Brain {
 		ArrayList<Point> points = new ArrayList<Point>();
 
 		// eventがCOの場合
-		if (event.getType().equalsIgnoreCase("COMINGOUT")) {
+		if (event.getType().equals(EventType.TALK) && event.getTopic().equals(Topic.COMINGOUT)){
 			// 未CO者をCO者マップに追加
 			putCoAgent(event);
 		}

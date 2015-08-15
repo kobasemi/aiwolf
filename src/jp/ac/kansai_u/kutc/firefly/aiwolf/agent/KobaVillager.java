@@ -39,9 +39,9 @@ public class KobaVillager extends AbstractVillager {
         super.update(gameInfo);
         List<Talk> talkList = gameInfo.getTalkList();
         for (int i = readTalkIdx; i < talkList.size(); i++) {
-        	Event event =new Event(talkList.get(i).getContent());//Event作成
-        	log.addEvent(event);// EventLogにEventを詰め込む
-        	brain.update(event);//BrainにEventを渡す
+            Event event =new Event(talkList.get(i));//Event作成
+            log.addEvent(event);// EventLogにEventを詰め込む
+            brain.update(event);//BrainにEventを渡す
             Utterance u = new Utterance(talkList.get(i).getContent());
             switch (u.getTopic()) {
                 case COMINGOUT:
