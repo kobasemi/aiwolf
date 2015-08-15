@@ -1,20 +1,20 @@
 package jp.ac.kansai_u.kutc.firefly.aiwolf.agent;
 
-import org.aiwolf.client.base.player.AbstractVillager;
-import org.aiwolf.client.lib.Utterance;
-import org.aiwolf.common.data.*;
-import org.aiwolf.common.data.Agent;
-import org.aiwolf.common.data.Role;
-import org.aiwolf.common.data.Talk;
-import org.aiwolf.common.data.Team;
-import org.aiwolf.common.data.Vote;
-import org.aiwolf.common.net.GameInfo;
-
 import java.util.List;
 
 import jp.ac.kansai_u.kutc.firefly.aiwolf.Brain;
 import jp.ac.kansai_u.kutc.firefly.aiwolf.Event;
 import jp.ac.kansai_u.kutc.firefly.aiwolf.EventLog;
+
+import org.aiwolf.client.base.player.AbstractVillager;
+import org.aiwolf.client.lib.Utterance;
+import org.aiwolf.common.data.Agent;
+import org.aiwolf.common.data.Judge;
+import org.aiwolf.common.data.Role;
+import org.aiwolf.common.data.Talk;
+import org.aiwolf.common.data.Team;
+import org.aiwolf.common.data.Vote;
+import org.aiwolf.common.net.GameInfo;
 
 /**
  * This class is the role of Villager.
@@ -69,6 +69,7 @@ public class KobaVillager extends AbstractVillager {
                     break;
             }
             readTalkIdx++;
+            Judge j;
         }
 
     }

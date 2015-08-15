@@ -41,9 +41,6 @@ public class PointSystem {
 				case POSSESSED:
 					mAgentPoint.setPossessedPoint(point.getAgentId(), point.getView(), point.getVariation());
 					break;
-				case FREEMASON:
-					//TODO: 不明
-					break;
 				default:
 					//TODO: 例外を投げる？
 					break;
@@ -56,7 +53,7 @@ public class PointSystem {
 
 
 
-	public int getPoint(Role role, int player, int view) {
+	public int getPoint(Role role, int player, View view) {
 		int point = -1;
 		if (role != null) {
 			// Return IP.
@@ -78,9 +75,6 @@ public class PointSystem {
 				break;
 			case POSSESSED:
 				point = mAgentPoint.getPossessedPoint(player, view);
-				break;
-			case FREEMASON:
-				//TODO: 不明
 				break;
 			default:
 				//TODO: 例外を投げる？
