@@ -9,7 +9,6 @@ import jp.ac.kansai_u.kutc.firefly.aiwolf.EventLog;
 import org.aiwolf.client.base.player.AbstractVillager;
 import org.aiwolf.client.lib.Utterance;
 import org.aiwolf.common.data.Agent;
-import org.aiwolf.common.data.Judge;
 import org.aiwolf.common.data.Role;
 import org.aiwolf.common.data.Talk;
 import org.aiwolf.common.data.Team;
@@ -69,7 +68,6 @@ public class KobaVillager extends AbstractVillager {
                     break;
             }
             readTalkIdx++;
-            Judge j;
         }
 
     }
